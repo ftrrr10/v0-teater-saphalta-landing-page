@@ -1,57 +1,51 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Calendar, MapPin, Clock } from "lucide-react"
+import { Palette, Sparkles, Drama } from "lucide-react"
 
-const shows = [
+const repertoire = [
   {
     id: 1,
-    title: "Romeo & Juliet",
-    date: "15 Desember 2025",
-    time: "19:30 WIB",
-    location: "Auditorium Utama",
-    price: "Rp 150K",
-    description: "Kisah cinta abadi yang mengharukan dalam balutan drama klasik Shakespeare.",
+    title: "Kocak Kacik",
+    author: "Karya: Arifin C. Noer",
+    description: "Refleksi pencarian jati diri dan perjuangan kehidupan masyarakat akar rumput.",
     image: "/romantic-theatre-performance-romeo-juliet.jpg",
-    badge: "POPULER",
-    badgeColor: "bg-primary",
+    badge: "DRAMA REALIS",
+    badgeColor: "bg-maroon",
+    icon: Drama,
   },
   {
     id: 2,
-    title: "The Tempest",
-    date: "20 Desember 2025",
-    time: "19:30 WIB",
-    location: "Auditorium Utama",
-    price: "Rp 150K",
-    description: "Petualangan magis di pulau misterius dengan efek visual yang memukau.",
+    title: "Kapai-Kapai",
+    author: "Karya: Arifin C. Noer",
+    description: "Drama tentang mimpi yang melambung dan pencarian makna hidup yang puitis.",
     image: "/magical-theatre-storm-tempest-stage-performance.jpg",
-    badge: "TERBARU",
-    badgeColor: "bg-accent",
+    badge: "SURREALIS",
+    badgeColor: "bg-gold",
+    icon: Sparkles,
   },
   {
     id: 3,
-    title: "Hamlet Act I",
-    date: "25 Desember 2025",
-    time: "19:30 WIB",
-    location: "Auditorium Utama",
-    price: "Rp 150K",
-    description: "Drama tragis tentang pengkhianatan dan balas dendam yang memukau.",
+    title: "Kopral Woyzeck",
+    author: "Karya: George Buchner",
+    description: "Kisah tragis tentang eksploitasi manusia dan sisi gelap kemanusiaan.",
     image: "/dramatic-hamlet-theatre-performance-dark-stage.jpg",
-    badge: "POPULER",
-    badgeColor: "bg-primary",
+    badge: "TRAGEDI KLASIK",
+    badgeColor: "bg-foreground",
+    icon: Palette,
   },
 ]
 
 function GoldDivider() {
   return (
     <div className="flex items-center justify-center gap-4 py-4" aria-hidden="true">
-      <div className="h-px w-24 bg-gradient-to-r from-transparent to-accent" />
+      <div className="h-px w-24 bg-gradient-to-r from-transparent to-gold" />
       <div className="flex gap-2">
-        <span className="text-accent text-lg">✦</span>
-        <span className="text-primary text-lg">✦</span>
-        <span className="text-accent text-lg">✦</span>
+        <span className="text-gold text-lg">✦</span>
+        <span className="text-maroon text-lg">✦</span>
+        <span className="text-gold text-lg">✦</span>
       </div>
-      <div className="h-px w-24 bg-gradient-to-l from-transparent to-accent" />
+      <div className="h-px w-24 bg-gradient-to-l from-transparent to-gold" />
     </div>
   )
 }
@@ -79,21 +73,21 @@ export function FeaturedShows() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-muted/30 py-16 px-4 md:px-8 lg:px-16">
+    <section ref={sectionRef} id="repertoar" className="bg-muted/30 py-16 px-4 md:px-8 lg:px-16">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <GoldDivider />
         <div className={`text-center mb-12 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3 font-serif">Pertunjukan Mendatang</h2>
-          <p className="text-accent text-lg">Jangan lewatkan penampilan spektakuler kami</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-maroon mb-3 font-serif">Repertoar Utama</h2>
+          <p className="text-gold text-lg">Karya-karya legendaris yang menjadi identitas komunitas kami</p>
         </div>
 
         {/* Shows Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {shows.map((show, index) => (
+          {repertoire.map((show, index) => (
             <div
               key={show.id}
-              className={`group bg-background rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden border-t-4 border-accent ${
+              className={`group bg-background rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden border-t-4 border-gold ${
                 isVisible ? "animate-fade-in-up" : "opacity-0"
               }`}
               style={{ animationDelay: `${index * 100 + 200}ms` }}
@@ -112,35 +106,17 @@ export function FeaturedShows() {
                 >
                   {show.badge}
                 </div>
+                {/* Overlay with Icon */}
+                <div className="absolute inset-0 bg-maroon/0 group-hover:bg-maroon/20 transition-colors duration-300 flex items-center justify-center">
+                  <show.icon className="w-12 h-12 text-background opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
               </div>
 
-              {/* Card Content */}
+              {/* Card Content - Simplified without pricing */}
               <div className="p-5">
-                <h3 className="text-xl font-bold text-primary mb-3 font-serif">{show.title}</h3>
-
-                <div className="space-y-2 mb-4">
-                  <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                    <Calendar className="w-4 h-4 text-accent" aria-hidden="true" />
-                    <span>{show.date}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                    <Clock className="w-4 h-4 text-accent" aria-hidden="true" />
-                    <span>{show.time}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                    <MapPin className="w-4 h-4 text-accent" aria-hidden="true" />
-                    <span>{show.location}</span>
-                  </div>
-                </div>
-
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{show.description}</p>
-
-                <div className="flex items-center justify-between">
-                  <span className="text-accent font-bold text-lg">Dari {show.price}</span>
-                  <button className="bg-primary hover:bg-primary/90 text-background px-4 py-2 rounded text-sm font-semibold transition-all duration-200 hover:shadow-md hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">
-                    LIHAT DETAIL
-                  </button>
-                </div>
+                <h3 className="text-xl font-bold text-maroon mb-1 font-serif">{show.title}</h3>
+                <p className="text-gold text-sm font-medium mb-3">{show.author}</p>
+                <p className="text-foreground/70 text-sm leading-relaxed">{show.description}</p>
               </div>
             </div>
           ))}
@@ -148,9 +124,9 @@ export function FeaturedShows() {
 
         {/* Decorative Stars Between Section */}
         <div className="flex justify-center gap-8 mt-8" aria-hidden="true">
-          <span className="text-accent/40 text-2xl">✦</span>
-          <span className="text-primary/40 text-2xl">✦</span>
-          <span className="text-accent/40 text-2xl">✦</span>
+          <span className="text-gold/40 text-2xl">✦</span>
+          <span className="text-maroon/40 text-2xl">✦</span>
+          <span className="text-gold/40 text-2xl">✦</span>
         </div>
 
         <GoldDivider />

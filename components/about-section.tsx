@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Check } from "lucide-react"
+import { ShieldCheck, Heart, Users } from "lucide-react"
 
 export function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -28,9 +28,9 @@ export function AboutSection() {
   }, [])
 
   const highlights = [
-    "Performer profesional berpengalaman",
-    "Produksi berkualitas internasional",
-    "Komunitas teater yang aktif",
+    { icon: ShieldCheck, text: "Pencegahan Negatif" },
+    { icon: Heart, text: "Pemberdayaan Karakter" },
+    { icon: Users, text: "Solidaritas Warga" },
   ]
 
   return (
@@ -50,13 +50,21 @@ export function AboutSection() {
             <div className="absolute left-0 top-0 bottom-0 w-1 bg-gold rounded-full" />
 
             <div className="pl-8 max-w-[600px]">
-              <h2 className="text-3xl lg:text-4xl font-bold text-maroon mb-6 font-serif">Tentang Teater Saphalta</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-maroon mb-6 font-serif">
+                Dari Kampung Rawa Untuk Seni
+              </h2>
 
-              <p className="text-muted-foreground leading-relaxed mb-8 text-base lg:text-lg">
-                Teater Saphalta adalah institusi seni pertunjukan yang berdedikasi untuk menghadirkan produksi
-                berkualitas tinggi. Kami percaya bahwa teater adalah medium yang powerful untuk mengekspresikan budaya,
-                cerita, dan emosi manusia. Sejak didirikan, kami telah menghadirkan ratusan pertunjukan yang
-                menginspirasi ribuan penonton.
+              <p className="text-foreground/80 leading-relaxed mb-4 text-base lg:text-lg">
+                Teater Sapta lahir di era 1990-an dari sebuah inisiatif sederhana Karang Taruna RW 07 Kelurahan Galur,
+                Jakarta Pusat. Di tengah maraknya tawuran dan ancaman narkoba yang mengintai pemuda, para tokoh
+                masyarakat memilih jalan berbeda: mengubah kampung menjadi{" "}
+                <span className="text-gold font-semibold">Kampung Kesenian</span>.
+              </p>
+
+              <p className="text-foreground/80 leading-relaxed mb-8 text-base lg:text-lg">
+                Panggung teater menjadi wadah bagi anak-anak muda untuk menyalurkan energi, membangun kepercayaan diri,
+                dan menemukan jati diri. Lebih dari dua dekade berlalu, komunitas ini terus tumbuh menjadi simbol
+                ketahanan sosial dan kreativitas warga akar rumput.
               </p>
 
               <ul className="space-y-4 mb-8">
@@ -66,10 +74,10 @@ export function AboutSection() {
                     className={`flex items-center gap-3 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
                     style={{ animationDelay: `${index * 100 + 200}ms` }}
                   >
-                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-gold/20">
-                      <Check className="w-4 h-4 text-gold" aria-hidden="true" />
+                    <span className="flex items-center justify-center w-10 h-10 rounded-full bg-gold/20">
+                      <item.icon className="w-5 h-5 text-gold" aria-hidden="true" />
                     </span>
-                    <span className="text-foreground font-medium">{item}</span>
+                    <span className="text-foreground font-medium">{item.text}</span>
                   </li>
                 ))}
               </ul>
@@ -78,7 +86,7 @@ export function AboutSection() {
                 variant="outline"
                 className="border-maroon text-maroon hover:bg-maroon hover:text-background transition-all duration-200 bg-transparent hover:shadow-md hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
               >
-                PELAJARI LEBIH LANJUT
+                CERITA LENGKAP KAMI
               </Button>
             </div>
           </div>
@@ -91,7 +99,7 @@ export function AboutSection() {
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/about-theatre-rehearsal.jpg"
-                alt="Latihan aktor Teater Saphalta di panggung"
+                alt="Latihan komunitas Teater Sapta di Kampung Rawa"
                 fill
                 className="object-cover"
                 loading="lazy"

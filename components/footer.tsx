@@ -5,11 +5,10 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
 const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "Tiket", href: "#tiket" },
+  { label: "Home", href: "#beranda" },
+  { label: "Repertoar", href: "#repertoar" },
   { label: "Sejarah", href: "#sejarah" },
   { label: "Galeri", href: "#galeri" },
-  { label: "Teater", href: "#teater" },
   { label: "Kontak", href: "#kontak" },
 ]
 
@@ -52,18 +51,21 @@ export function Footer() {
             >
               <Image
                 src="/images/screenshot-202025-12-10-20012120.png"
-                alt="Teater Saphalta Logo"
+                alt="Teater Sapta Logo"
                 width={60}
                 height={60}
                 className="rounded-full"
               />
               <div>
-                <span className="text-xl font-bold text-maroon">Teater Saphalta</span>
-                <p className="text-sm text-foreground/60">Performance Art Theatre</p>
+                <span className="text-xl font-bold text-maroon">Teater Sapta</span>
+                <p className="text-sm text-foreground/60">Komunitas Teater Kampung Rawa</p>
               </div>
             </Link>
             <p className="text-foreground/70 text-sm text-center md:text-left">
-              Bagian dari komunitas <span className="text-gold font-semibold">@sanggarsapta</span>
+              Komunitas teater berbasis masyarakat yang mengubah energi pemuda menjadi karya seni sejak 1990-an.
+            </p>
+            <p className="text-foreground/70 text-sm text-center md:text-left mt-2">
+              Bagian dari <span className="text-gold font-semibold">@sanggarsapta</span>
             </p>
           </div>
 
@@ -98,7 +100,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Right - Social & Newsletter */}
+          {/* Right - Social & Join CTA */}
           <div className="flex flex-col items-center md:items-start">
             <h4 className="text-maroon font-bold mb-4 uppercase tracking-wide">Ikuti Kami</h4>
             <div className="flex gap-4 mb-6">
@@ -125,20 +127,22 @@ export function Footer() {
               </Link>
             </div>
 
-            {/* Newsletter */}
-            <h4 className="text-maroon font-bold mb-3 uppercase tracking-wide text-sm">Newsletter</h4>
+            <h4 className="text-maroon font-bold mb-3 uppercase tracking-wide text-sm">Gabung Komunitas</h4>
+            <p className="text-foreground/70 text-sm mb-3 text-center md:text-left">
+              Tertarik berkolaborasi atau bergabung? Hubungi kami!
+            </p>
             <form className="flex w-full max-w-xs gap-2">
               <Input
                 type="email"
                 placeholder="Email Anda"
                 className="border-gold/30 focus-visible:ring-gold focus-visible:border-gold"
-                aria-label="Alamat email untuk newsletter"
+                aria-label="Alamat email untuk bergabung"
               />
               <Button
                 type="submit"
                 className="bg-maroon hover:bg-maroon/90 text-background shrink-0 transition-all duration-200 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
               >
-                Subscribe
+                Kirim
               </Button>
             </form>
           </div>
@@ -149,7 +153,8 @@ export function Footer() {
       <div className="border-t border-gold/30">
         <div className="container mx-auto px-4 py-4">
           <p className="text-center text-foreground/50 text-sm">
-            © 2025 Teater Saphalta. Bagian dari <span className="text-gold">@sanggarsapta</span>. Semua hak dilindungi.
+            © 2025 Teater Sapta. Komunitas Teater <span className="text-gold">Kampung Rawa, Galur</span>. Semua hak
+            dilindungi.
           </p>
         </div>
       </div>

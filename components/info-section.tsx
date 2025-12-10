@@ -1,18 +1,13 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { MapPin, Clock, Phone, Play } from "lucide-react"
+import { MapPin, Phone, Play, UserPlus } from "lucide-react"
 
 const infoCards = [
   {
     icon: MapPin,
     title: "Lokasi",
-    details: ["Alamat Teater Saphalta", "Jakarta, Indonesia"],
-  },
-  {
-    icon: Clock,
-    title: "Jam Operasional",
-    details: ["Senin - Minggu", "18:00 - 23:00 WIB"],
+    details: ["Kampung Rawa, Kelurahan Galur", "Jakarta Pusat (RW 07)"],
   },
   {
     icon: Phone,
@@ -22,7 +17,12 @@ const infoCards = [
   {
     icon: Play,
     title: "Tonton Sekarang",
-    details: ["Konten eksklusif", "teater kami"],
+    details: ["Dokumentasi pertunjukan", "dan kegiatan komunitas"],
+  },
+  {
+    icon: UserPlus,
+    title: "Bergabung",
+    details: ["Terbuka untuk kolaborasi", "dan anggota baru"],
   },
 ]
 
@@ -53,7 +53,7 @@ export function InfoSection() {
       <div className="container mx-auto px-4">
         {/* Section Title */}
         <div className={`text-center mb-12 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
-          <h2 className="text-3xl md:text-4xl font-bold text-maroon mb-4 font-serif">Informasi Teater</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-maroon mb-4 font-serif">Informasi Komunitas</h2>
           <div className="flex items-center justify-center gap-2" aria-hidden="true">
             <div className="h-[2px] w-12 bg-gold" />
             <div className="h-2 w-2 rotate-45 bg-gold" />

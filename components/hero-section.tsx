@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { TheatreMasks } from "@/components/theatre-masks"
 import { DecorativeStars } from "@/components/decorative-stars"
+import { Sparkles, Users } from "lucide-react"
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -28,7 +29,7 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="tiket" className="relative bg-background overflow-hidden">
+    <section ref={sectionRef} id="beranda" className="relative bg-background overflow-hidden">
       {/* Decorative dots pattern */}
       <div className="absolute top-20 left-[45%] grid grid-cols-8 gap-1.5 opacity-60" aria-hidden="true">
         {Array.from({ length: 24 }).map((_, i) => (
@@ -43,9 +44,10 @@ export function HeroSection() {
             {/* Decorative Stars */}
             <DecorativeStars />
 
-            {/* Small Label */}
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-sm font-semibold tracking-widest text-gold uppercase">Pertunjukan Baru</span>
+              <span className="text-sm font-semibold tracking-widest text-gold uppercase">
+                Est. 1990s • Kampung Rawa, Galur
+              </span>
               <div className="h-0.5 w-16 bg-gold" />
             </div>
 
@@ -67,26 +69,32 @@ export function HeroSection() {
               </div>
             </div>
 
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-maroon tracking-tight mb-6 font-serif">
-              SAPHALTA
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-maroon tracking-tight mb-4 font-serif">
+              SAPTA
             </h2>
 
-            {/* Subheading */}
-            <p className="text-lg lg:text-xl font-medium text-gold mb-4">Performance Art Theatre</p>
+            <p className="text-lg lg:text-xl font-medium text-gold mb-4">Seni. Solidaritas. Perubahan Sosial.</p>
 
-            {/* Description */}
             <p className="text-foreground/80 leading-relaxed max-w-md mb-8 text-base lg:text-lg">
-              Bergabunglah dengan kami dalam perjalanan seni pertunjukan yang luar biasa. Kami menghadirkan karya seni
-              berkualitas tinggi yang menggabungkan budaya, cerita, dan passion.
+              Lahir dari inisiatif Karang Taruna untuk merangkul pemuda. Kami mengubah energi negatif menjadi karya,
+              melawan tawuran dengan pertunjukan, dan membangun karakter melalui panggung teater.
             </p>
 
-            {/* CTA Button */}
-            <Button
-              size="lg"
-              className="bg-maroon text-background hover:bg-maroon/90 font-semibold px-8 py-6 text-base rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
-            >
-              PESAN TIKET SEKARANG
-            </Button>
+            <div className="flex flex-wrap gap-4">
+              <Button
+                size="lg"
+                className="bg-maroon text-background hover:bg-maroon/90 font-semibold px-8 py-6 text-base rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+              >
+                LIHAT KARYA KAMI
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-maroon text-maroon hover:bg-maroon hover:text-background font-semibold px-8 py-6 text-base rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 bg-transparent"
+              >
+                GABUNG KOMUNITAS
+              </Button>
+            </div>
           </div>
 
           {/* Right Content - Image & Decorative Elements */}
@@ -94,31 +102,29 @@ export function HeroSection() {
             className={`relative ${isVisible ? "animate-fade-in" : "opacity-0"}`}
             style={{ animationDelay: "200ms" }}
           >
-            {/* Decorative Bento Grid */}
             <div className="absolute -top-4 right-0 lg:right-8 z-10">
-              <div className="grid grid-cols-4 gap-2">
-                {/* Ticket Price Card */}
-                <div className="col-span-2 bg-background border-2 border-foreground/20 rounded-lg px-4 py-3 shadow-md hover:shadow-lg transition-shadow duration-200">
-                  <span className="text-maroon font-bold text-sm">TIKET</span>
-                  <span className="text-foreground font-bold text-xl ml-2">Rp 150K</span>
+              <div className="grid grid-cols-2 gap-3">
+                {/* Stats Card 1 */}
+                <div className="bg-background border-2 border-gold/30 rounded-lg px-4 py-3 shadow-md hover:shadow-lg transition-shadow duration-200 flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-gold" />
+                  <div>
+                    <span className="text-maroon font-bold text-lg block leading-tight">15+</span>
+                    <span className="text-foreground/70 text-xs">Tahun Berkarya</span>
+                  </div>
                 </div>
-                {/* Mask Icon */}
-                <div className="bg-maroon rounded-lg p-2 flex items-center justify-center">
-                  <TheatreMasks className="w-8 h-8 text-background" />
-                </div>
-                {/* Decorative Wave Pattern */}
-                <div className="bg-foreground/10 rounded-lg p-2 flex items-center justify-center">
-                  <div className="w-full h-full flex flex-col justify-center gap-0.5">
-                    {Array.from({ length: 4 }).map((_, i) => (
-                      <div key={i} className="h-0.5 w-full bg-foreground/40 rounded" />
-                    ))}
+                {/* Stats Card 2 */}
+                <div className="bg-background border-2 border-gold/30 rounded-lg px-4 py-3 shadow-md hover:shadow-lg transition-shadow duration-200 flex items-center gap-2">
+                  <Users className="w-5 h-5 text-gold" />
+                  <div>
+                    <span className="text-maroon font-bold text-lg block leading-tight">100+</span>
+                    <span className="text-foreground/70 text-xs">Pertunjukan</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Theatre Masks Row */}
-            <div className="absolute top-16 right-0 lg:right-8 z-10">
+            <div className="absolute top-20 right-0 lg:right-8 z-10">
               <div className="flex gap-2">
                 <div className="w-8 h-8 bg-maroon/20 rounded-lg" />
                 <div className="bg-maroon rounded-lg p-1.5">
@@ -134,11 +140,11 @@ export function HeroSection() {
             </div>
 
             {/* Main Image */}
-            <div className="relative mt-24 lg:mt-20">
+            <div className="relative mt-28 lg:mt-24">
               <div className="relative rounded-lg overflow-hidden shadow-2xl">
                 <img
                   src="/theatre-performer-mime-artist-on-stage-dramatic-li.jpg"
-                  alt="Pertunjukan Teater Saphalta - Aktor mime di panggung dengan pencahayaan dramatis"
+                  alt="Pertunjukan Teater Sapta - Komunitas teater Kampung Rawa"
                   className="w-full h-[400px] lg:h-[500px] object-cover"
                   loading="eager"
                 />
@@ -160,7 +166,7 @@ export function HeroSection() {
             </div>
 
             {/* Decorative Star */}
-            <div className="absolute top-32 left-0 text-foreground/20 text-2xl" aria-hidden="true">
+            <div className="absolute top-36 left-0 text-foreground/20 text-2xl" aria-hidden="true">
               ★
             </div>
           </div>
